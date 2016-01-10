@@ -20,7 +20,12 @@ public class DraggingTool implements Tool {
         this.gameView = gameView;
         image = BitmapFactory.decodeResource(gameView.getResources(), R.drawable.drag_tool);
     }
+
     @Override
+    public void actionUp(int x, int y) {
+    }
+
+    /*@Override
     public boolean onTouchEvent(MotionEvent event) {
         int eventaction = event.getAction();
         int x = (int)event.getX();
@@ -38,7 +43,7 @@ public class DraggingTool implements Tool {
                 break;
         }
         return true;
-    }
+    }*/
 
     @Override
     public Bitmap getImage() {

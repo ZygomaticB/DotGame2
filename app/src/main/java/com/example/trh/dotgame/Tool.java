@@ -8,6 +8,7 @@ import android.view.MotionEvent;
  */
 public interface Tool {
 
-    boolean onTouchEvent(MotionEvent event);
+    void actionUp(int x, int y);
+    //boolean onTouchEvent(MotionEvent event);
     Bitmap getImage();
 }

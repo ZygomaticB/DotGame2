@@ -1,25 +1,28 @@
 package com.example.trh.dotgame;
 
+import android.graphics.Paint;
+
 /**
  * Created by trh on 12/19/15.
  */
 public class Dot {
 
-    private int color;
+    private Paint color;
     private int xPosition;
     private int yPosition;
     private int radius;
     private boolean dragable;
 
     public Dot(int color, int x, int y, int radius, boolean dragable) {
-        this.color = color;
+        this.color = new Paint();
+        this.color.setColor(color);
         xPosition = x;
         yPosition = y;
         this.radius = radius;
         this.dragable = dragable;
     }
 
-    public int getColor() {
+    public Paint getColor() {
         return color;
     }
 

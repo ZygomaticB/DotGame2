@@ -2,6 +2,7 @@ package com.example.trh.dotgame;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.view.MotionEvent;
 
 /**
@@ -11,25 +12,23 @@ public class DotPlacingTool implements Tool {
 
     private GameView gView;
     private Bitmap image;
+    private int dotSize = 50;
 
     public DotPlacingTool(GameView gView) {
         this.gView = gView;
         image = BitmapFactory.decodeResource(gView.getResources(), R.drawable.dot_placer);
     }
 
-    public boolean onTouchEvent(MotionEvent event) {
-        int eventaction = event.getAction();
-        int x = (int)event.getX();
-        int y = (int)event.getY();
+    public void actionUp(int x, int y) {
+        gView.placeDot(x, y, dotSize, Color.GREEN);
+    }
 
-        switch(eventaction) {
+    public void setDotSize(int size) {
+        dotSize = size;
+    }
 
-            case MotionEvent.ACTION_UP:
-                if (y > 100) {
-                    gView.placeDot(x, y);
-                }
-        }
-        return true;
+    public int getDotSize() {
+        return dotSize;
     }
 
     public Bitmap getImage() {
