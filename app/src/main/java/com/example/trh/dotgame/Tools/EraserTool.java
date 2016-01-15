@@ -1,8 +1,10 @@
-package com.example.trh.dotgame;
+package com.example.trh.dotgame.Tools;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.view.MotionEvent;
+
+import com.example.trh.dotgame.GameView;
+import com.example.trh.dotgame.R;
 
 /**
  * Created by trh on 1/5/16.

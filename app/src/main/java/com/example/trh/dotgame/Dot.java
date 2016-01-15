@@ -1,6 +1,9 @@
 package com.example.trh.dotgame;
 
+import android.graphics.Color;
 import android.graphics.Paint;
+
+import java.util.Map;
 
 /**
  * Created by trh on 12/19/15.
@@ -12,6 +15,7 @@ public class Dot {
     private int yPosition;
     private int radius;
     private boolean dragable;
+    private int touchCount = 0;
 
     public Dot(int color, int x, int y, int radius, boolean dragable) {
         this.color = new Paint();
@@ -24,6 +28,10 @@ public class Dot {
 
     public Paint getColor() {
         return color;
+    }
+
+    public void setColor(int alpha, int red, int blue, int green) {
+        color.setColor(Color.argb(alpha, red, blue, green));
     }
 
     public int getxPosition() {
@@ -45,4 +53,13 @@ public class Dot {
     public void setyPosition(int yPosition) {
         this.yPosition = yPosition;
     }
+
+    public void setTouchCount(int touchCount) {
+        this.touchCount = touchCount;
+    }
+
+    public int getTouchCount() {
+        return touchCount;
+    }
+
 }

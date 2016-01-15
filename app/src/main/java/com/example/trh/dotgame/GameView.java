@@ -4,13 +4,15 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.hardware.SensorEventListener;
 import android.view.MotionEvent;
 import android.view.View;
 
-import java.util.ArrayList;
+import com.example.trh.dotgame.Tools.DotPlacingTool;
+import com.example.trh.dotgame.Tools.DraggingTool;
+import com.example.trh.dotgame.Tools.DrawingTool;
+import com.example.trh.dotgame.Tools.EraserTool;
+import com.example.trh.dotgame.Tools.Tool;
+
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;

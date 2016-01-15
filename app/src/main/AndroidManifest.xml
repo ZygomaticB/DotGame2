@@ -7,7 +7,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".GameActivity"
+        <activity android:name=".TitleActivity"
             android:label="DotGame">
             <intent-filter>
                 <action
@@ -16,6 +16,10 @@
                     android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".StoryActivity"
+            android:label="DotGame"></activity>
+        <activity android:name=".FreePlayActivity"
+            android:label="FreePlay"></activity>
 
     </application>
 

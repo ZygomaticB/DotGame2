@@ -1,4 +1,4 @@
-package com.example.trh.dotgame;
+package com.example.trh.dotgame.Tools;
 
 import android.graphics.Bitmap;
 import android.view.MotionEvent;
