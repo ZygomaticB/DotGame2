@@ -62,4 +62,6 @@ public class Dot {
         return touchCount;
     }
 
+    public boolean isDragable() { return dragable; }
+
 }

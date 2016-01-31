@@ -1,40 +1,20 @@
 package com.example.trh.dotgame.Levels;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.media.AudioManager;
 import android.media.MediaPlayer;
-import android.media.SoundPool;
-import android.util.Log;
 import android.view.MotionEvent;
-import android.view.View;
-
 import com.example.trh.dotgame.Dot;
-import com.example.trh.dotgame.StoryActivity;
 import com.example.trh.dotgame.R;
 
-/**
- * Created by trh on 1/10/16.
- */
-public class Level1 extends View implements Level{
+import java.util.ArrayList;
 
-    private Context myContext;
-    private Dot orangeDot;
-    private int screenH;
-    private int screenW;
-    private SoundPool sounds;
-    private static int touchOrange;
-    private AudioManager audioManager;
-    private float volume;
+public class Level1 extends Level{
 
     public Level1(Context context) {
         super(context);
-        myContext = context;
-
-
-        //playSound(myContext, touchOrange);
+        dots = new ArrayList<>();
     }
 
     public static void playSound(Context context, int soundID) {
@@ -53,12 +33,8 @@ public class Level1 extends View implements Level{
 
         switch(actionevent) {
             case MotionEvent.ACTION_UP:
-                if (orangeDot.getxPosition()+orangeDot.getRadius() > X &&
-                        orangeDot.getxPosition()-orangeDot.getRadius() < X &&
-                        orangeDot.getyPosition()-orangeDot.getRadius() < Y &&
-                        orangeDot.getyPosition()+orangeDot.getRadius() > Y) {
-                    Log.d("level", "withindot");
-                    nextLevel();
+                if (withinDot(X, Y, dots.get(0))) {
+                    nextLevel(2);
                 }
                 break;
         }
@@ -68,21 +44,13 @@ public class Level1 extends View implements Level{
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawCircle(orangeDot.getxPosition(), orangeDot.getyPosition(),
-                orangeDot.getRadius(), orangeDot.getColor());
+        canvas.drawCircle(dots.get(0).getxPosition(), dots.get(0).getyPosition(),
+                dots.get(0).getRadius(), dots.get(0).getColor());
     }
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
-        screenH = h;
-        screenW = w;
-        orangeDot = new Dot(Color.argb(255, 255, 102, 0), w/2, h/2, w/10, false);
-    }
-
-    private void nextLevel() {
-        Intent intent = new Intent(myContext, StoryActivity.class);
-        intent.putExtra("Value1", 2);
-        myContext.startActivity(intent);
+        dots.add(new Dot(Color.argb(255, 255, 102, 0), w/2, h/2, w/10, false));
     }
 }
